@@ -7,8 +7,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap');
 
 
-body{
-  font-family: 'Edu NSW ACT Cursive', cursive;
+@font-face {
+  font-family: "Edu NSW ACT Cursive";
+  src: url("/fonts/EduNSWACTCursive-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 700; 
+  font-style: normal;
 }
+
+body {
+  font-family: "Edu NSW ACT Cursive", cursive;
+}
+
+
 
 
