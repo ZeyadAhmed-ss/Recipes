@@ -1,13 +1,20 @@
-import React, { useState } from "react";
-import img from "../assets/unnamed.png";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router";
+import img from "../assets/unnamed.png";
 
 export default function Sidebar() {
-  
   const [isOpen, setIsOpen] = useState(false);
+  const sidebarRef = useRef(null);
 
   return (
-    <>
+    <div
+      onClickCapture={(e) => {
+        if (isOpen && sidebarRef.current && !sidebarRef.current.contains(e.target)) {
+          setIsOpen(false);
+        }
+      }}
+    >
+
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100"
@@ -20,6 +27,7 @@ export default function Sidebar() {
 
       {/* Sidebar */}
       <aside
+        ref={sidebarRef}
         className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } sm:translate-x-0 bg-gray-50 dark:bg-gray-950`}
@@ -34,6 +42,7 @@ export default function Sidebar() {
             <li className="pt-10">
               <Link
                 to={"/"}
+                onClick={() => setIsOpen(false)}
                 className="text-lg font-semibold text-white bg-gradient-to-r from-orange-400 to-orange-600 px-5 py-3 rounded-xl transition-all duration-300 hover:from-orange-500 hover:to-orange-700"
               >
                 All Meals
@@ -42,6 +51,6 @@ export default function Sidebar() {
           </ul>
         </div>
       </aside>
-    </>
+    </div>
   );
 }
