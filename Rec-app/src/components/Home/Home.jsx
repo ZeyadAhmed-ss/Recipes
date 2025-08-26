@@ -17,9 +17,10 @@ export default function Home() {
   }
 
   const { data, isLoading, error, isError } = useQuery({
-    queryKey: ["allmeals"],
+    queryKey: ["allmeals", category],
     queryFn: AllMeals,
     select: (data) => data.data.meals,
+    keepPreviousData: true,
   });
 
   if (isLoading)
