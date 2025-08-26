@@ -15,7 +15,18 @@ export default function Details() {
     queryFn: getDetails,
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+  return (
+    <div className="flex items-center justify-center h-[70vh]">
+      <div className="text-center">
+        <div className="w-16 h-16 border-4 border-amber-500 border-t-amber-300 rounded-full animate-spin mx-auto mb-4"></div>
+        <p className="text-lg sm:text-xl font-semibold text-gray-800">
+          Loading...
+        </p>
+      </div>
+    </div>
+  );
+
   if (error) return <div>Error loading details</div>;
 
   let details = data?.data?.meals[0];
