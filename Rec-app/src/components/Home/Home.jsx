@@ -24,9 +24,17 @@ export default function Home() {
   });
 
   if (isLoading)
-    return (
-      <p className="text-center text-lg text-gray-500 pt-100">Loading...</p>
-    );
+  return (
+    <div className="flex items-center justify-center h-[70vh]">
+      <div className="text-center">
+        <div className="w-16 h-16 border-4 border-amber-500 border-t-amber-300 rounded-full animate-spin mx-auto mb-4"></div>
+        <p className="text-lg sm:text-xl font-semibold text-gray-800">
+          Loading...
+        </p>
+      </div>
+    </div>
+  );
+
   if (isError)
     return (
       <p className="text-center text-red-500 pt-100">Error: {error.message}</p>
@@ -35,16 +43,22 @@ export default function Home() {
   if (data) {
     return (
       <>
-        <div className="flex justify-start">
-          <h1 className="ps-5 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-amber-300">
+        <div className="w-full">
+          <h1
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-amber-300 
+                 px-4 sm:px-6 md:ml-56 md:px-0
+                 py-4
+                 truncate"
+          >
             Learn, cook, Eat Your Food
           </h1>
         </div>
+
         <Allcategories />
 
         <div className="sm:ml-56 p-4">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            <div className="sm:ps-5 sm:pe-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-6">
               {data.map((meal) => (
                 <div
                   key={meal.idMeal}

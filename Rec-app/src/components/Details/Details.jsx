@@ -37,7 +37,7 @@ export default function Details() {
       <h1 className="text-4xl font-bold mb-6">{details.strMeal}</h1>
 
       <div className="flex flex-col md:flex-row gap-6">
-        {/* الصورة + زرار الرجوع */}
+        {/* back button*/}
         <div className="md:w-1/3 w-full flex flex-col items-center">
           <img
             src={details.strMealThumb}

@@ -10,13 +10,15 @@
 @font-face {
   font-family: "Edu NSW ACT Cursive";
   src: url("/fonts/EduNSWACTCursive-VariableFont_wght.ttf") format("truetype");
-  font-weight: 100 700; 
-  font-style: normal;
+  font-weight: 400 700; 
+  
 }
 
 body {
   font-family: "Edu NSW ACT Cursive", cursive;
+  background: linear-gradient(135deg, #fffaf5 0%, #f5f0ef 50%, #fffaf5 100%);
 }
+
 
 
 
